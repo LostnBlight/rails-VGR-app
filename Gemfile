@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
-ge 'bcrypt'
-
 # gem 'dotenv-rails'
 
 # gem 'omniauth-rails_csrf_protection'
