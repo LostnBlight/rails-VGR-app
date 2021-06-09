@@ -1,0 +1,17 @@
+<% if @game %>
+<h1>New Review for <%= @game.name%>!</h1>
+<% else %>
+<h1>New Review!</h1>
+<% end %>
+
+<%= form_for([@game,@review]) do |f| %>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+
+    <%= f.submit %>
+
+<% end %>
