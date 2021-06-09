@@ -1,0 +1,14 @@
+
+<% if logged_in? %>
+    <h1>Welcome To The Home Page!</h1>
+
+    <p>Here you can create reviews on games and check out other players reviews as well! In the navbar you have full selection on anything you want to do.</p>
+
+<% else %>
+    <h1> Welcome! </h1>
+    | <%= link_to "Sign Up Here", signup_path %> |
+    <br><br>
+    | <%= link_to "Log In", '/login' %> |
+    <br><br>
+    | <%= link_to "Log In With GitHub", 'omniauth/omniauth-github'' %> |
+<% end %>
