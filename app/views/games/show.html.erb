@@ -1,0 +1,32 @@
+<h2>Reviews for <%= @game.name %></h2>
+<ul>
+<%= label_tag "Game Name: "%> <%=@game.name%> <br>
+
+
+
+  <% @game.reviews.each do |r| %>
+    <br>
+    <%= link_to r.content, game_review_path(r.game, r) %>
+    <br>
+  <% end %>
+
+
+
+<% if @game.reviews.any? %>
+  <ul>
+    <% @game.reviews.order(:updated_at).reverse.each do |review| %>
+      <p> 
+      <a href="<%= game_review_path(@game, review) %>">  </a>
+      </p>
+    <% end %> 
+  </ul>
+  <br>
+    <% else %>
+      <em>This game has 0 reviews</em>
+    <% end %>
+
+    
+
+  <% if current_user %>
+    <ul><%= link_to "Add a review", new_game_review_path(@game) %></ul>
+  <% end %>
