@@ -1,0 +1,17 @@
+<h2><%= @review.user.username.capitalize %>'s review for <%= @game.name %></h2> 
+
+
+<h4><%= @review.content %></h4>
+  
+
+<br>
+<em><%= time_ago_in_words(@review.created_at) %> ago</em>
+</ul>
+<hr>
+<ul class="sub-links">
+  <li><%= link_to "Return to Game", game_path(@game) %></li>
+  <% if current_user %>
+    <li><%= link_to "Edit your review", edit_game_review_path(@game, @review) if current_user.id === @review.user.id %></li>
+    <li><%= link_to "Delete your review", game_review_path(@review), :data => {:confirm => "You sure?", :method => "delete"} if current_user.id === @review.user.id %></li>
+  <% end %>
+</ul>
