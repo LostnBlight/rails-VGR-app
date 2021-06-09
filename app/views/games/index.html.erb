@@ -1,0 +1,7 @@
+<h2> Welcome To The Games</h2> <br>
+<br>
+    <ul>
+      <% @games.each do |game| %>
+      <li class="li-underline"><%= link_to game.name, game_path(game) %></li>
+      <% end %>
+    </ul>
