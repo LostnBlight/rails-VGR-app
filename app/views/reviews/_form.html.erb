@@ -1,0 +1,9 @@
+
+
+<%= form_for [@game, @review] do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.label :content, "Write your review below" %>
+  <%= f.text_area :content %>
+  
+  <%= f.submit "Submit Review" %>
+<% end %>
